@@ -1,0 +1,19 @@
+<launch>
+   <node pkg="sicknav350" type="sicknav350_node" name="sicknav350" output="screen" >
+    <!--param name="scan" value="scan" /-->
+    <param name="publish_tf" value="true" />
+    <param name="publish_odom_" value="true" />
+    <param name="publish_scan" value="true" />
+    <param name="port" value="2111" />
+    <param name="ipaddress" value="192.168.0.10" />
+    <param name="inverted" value="false" />
+    <!--param name="fram_id" value="front_laser" /-->
+    <!--param name="fixed_frame_id" value="front_mount" /-->
+    <!--param name="laser_frame_id" value="map" /-->
+    <!--param name="laser_child_frame_id" value="reflector" /-->
+    <!--param name="resolution" value="1.0" /-->
+    <!--param name="start_angle" value="0.0" /-->
+    <!--param name="stop_angle" value="360.0" /-->
+    <!--param name="scan_rate" value="5.0" /-->
+  </node>
+</launch>
