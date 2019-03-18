@@ -1,24 +1,28 @@
 <launch>
-   
-   <!-- Publish static transform of the laser. Define your sensor offset here -->
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_nav350_laser_mount" args="0.20 0.0 1.345 0.0 0.0 0.0 /base_link /nav350_laser_mount 100"/>
+   <node name="static_tf0" pkg="tf" type="static_transform_publisher"
+        args="0 0 0 0 0 0 /world /map 100" />
+
+   <node name="static_tf1" pkg="tf" type="static_transform_publisher"
+        args="0 0 0 0 0 0 /map /odom 100" />
 
    <node pkg="sicknav350" type="sicknav350_node" name="sicknav350" output="screen" >
-    <param name="scan" value="nav350_laser/scan" />
+    <param name="scan" value="nav350laser/scan" />
     <param name="publish_tf" value="true" />
     <param name="publish_odom_" value="true" />
     <param name="publish_scan" value="true" />
     <param name="port" value="2111" />
-    <param name="ipaddress" value="10.42.0.10" />
+    <param name="ipaddress" value="192.168.0.10" />
     <param name="inverted" value="false" />
-    <param name="frame_id" value="nav350_laser" />
-    <param name="fixed_frame_id" value="nav350_laser_mount" />
+    <param name="fram_id" value="front_laser" />
+    <param name="fixed_frame_id" value="front_mount" />
     <param name="laser_frame_id" value="map" />
     <param name="laser_child_frame_id" value="reflector" />
     <param name="resolution" value="1.0" />
     <param name="start_angle" value="0.0" />
     <param name="stop_angle" value="360.0" />
     <param name="scan_rate" value="5.0" />
-   </node>
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find sicknav350)/nav350_localization.rviz"/>
 
 </launch>

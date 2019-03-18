@@ -139,7 +139,7 @@ int main(int argc, char *argv[]) {
 	nh_ns.param<std::string>("scan", scan, "scan");
 	ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(scan, 100);
 
-	ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("nav350laser/odom", 10);
+	ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("nav350_laser/odom", 10);
 
 	nh_ns.param<bool>("publish_tf", publish_tf_, true);
 	nh_ns.param<bool>("publish_odom_", publish_odom_, true);
